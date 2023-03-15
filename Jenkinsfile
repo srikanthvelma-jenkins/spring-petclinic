@@ -54,10 +54,7 @@ pipeline {
         stage('deploy'){
             agent { label 'UBUNTU_NODE1'}
             steps{
-                rtDownload(
-                    serverId : "ARTIFACTORY_SERVER",
-                    specPath : "/home/ubuntu"
-                )
+        
                 sh 'ansible-playbook -i ./hosts ./spc.yaml'
             }
         }
