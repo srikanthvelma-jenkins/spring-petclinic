@@ -110,6 +110,30 @@ Spring Pet Clinic Project Deployment  from Jenkins (CI/CD) through Ansible Playb
   ![preview](images/spcpr22.png)
   ![preview](images/spcpr23.png)
   * As shown above after the build result, we can merge (if any conflict, we have clear that).
-  * 
+  * After merging into main develop branch, again it will trigger the pipeline to run with pull code as per pollSCM 
+  ![preview](images/spcpr24.png)
+  * This completes the general Day Build process with pull request work flow
+
+
+### 3. Creating a Jenkins pipeline in rel_v1.0 Branch for deployment (s3 bucket)
+**Pre-requisites**
+* for spc - java 17 & maven 3.8 and above required, to installed in the node
+* In jenkins , node(UBUNTU_NODE2) to be configured and running
+* In Jenkins => Global Tool Config ,we should config tools req with home path
+* Tools - java(JDK_17) and maven(MAVEN_17)
+* Create a Jenkins Job => pipeline type
+* Create a Jenkinsfile in our GitHub in the **rel_v1.0** branch with stages as below
+  * vcs -version control system
+  * build - for maven to build
+  * archive & junit results - to  archive artifacts & publish junit results
+  * sonar analysis - static code analysis
+  * copy the build to any storage - copieed to s3 bucket
+  * deploy - deploy into other node by using Ansible-Playbook
+  * here we require following files
+    * Jenkinsfile
+    * ansible playbook - spc.yaml
+    * service file - spc.service
+    * hosts file - hosts.txt
+
   
-  
+   
