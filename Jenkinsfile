@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'UBUNTU_NODE2'}
-//    triggers { pollSCM('* * * * *')}
+    triggers { pollSCM('* * * * *')}
     stages {
         stage('vcs'){
             steps {
