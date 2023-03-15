@@ -1,5 +1,5 @@
-Spring Pet Clinic Project Deployment through Ansible Playbook
--------------------------------------------------------------
+Spring Pet Clinic Project Deployment  from Jenkins (CI/CD) through Ansible Playbook
+------------------------------------------------------------------------------------
 ### Tasks
 1. Creating a Jenkins pipeline in develop Branch for Day Build 
 2. Create a Jenkins Job for merging pull requset into develop branch
@@ -100,6 +100,16 @@ Spring Pet Clinic Project Deployment through Ansible Playbook
   ![preview](images/spcpr15.png)
   * Next we need to create a webhook in GitHub 
   * Go to repo => settings(project/repo) => webhooks => payload url : `http://<jenkins-ip>:8080/ghprbhook/`, select content type - application/json & let me select individual events - tick pull request & pushes => update hook
+  ![preview](images/spcpr16.png) 
+  ![preview](images/spcpr17.png)
+
+  * Now let us assume the devloper completes his code and raises a pull request to the main develop branch from his github, it will directly trigger to the jenkins 
+  ![preview](images/spcpr19.png)
+  ![preview](images/spcpr20.png)
+  ![preview](images/spcpr21.png)
+  ![preview](images/spcpr22.png)
+  ![preview](images/spcpr23.png)
+  * As shown above after the build result, we can merge (if any conflict, we have clear that).
   * 
   
   
