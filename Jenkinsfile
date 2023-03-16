@@ -29,8 +29,8 @@ pipeline {
                     tool: 'MAVEN_17',
                     pom: 'pom.xml',
                     goals: 'clean install',
-                    deployerId: "MAVEN_DEPLOYER"
-                    buildName: 'spring-petclinic'
+                    deployerId: "MAVEN_DEPLOYER",
+                    buildName: "spring-petclinic",
                     buildNumber: 'latest'
                 )
                 rtPublishBuildInfo (
