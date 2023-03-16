@@ -30,6 +30,8 @@ pipeline {
                     pom: 'pom.xml',
                     goals: 'clean install',
                     deployerId: "MAVEN_DEPLOYER"
+                    buildName: 'spring-petclinic'
+                    buildNumber: 'latest'
                 )
                 rtPublishBuildInfo (
                     serverId: "ARTIFACTORY_SERVER"
